@@ -18,3 +18,8 @@ steps:
 - script: |
     npm install
   displayName: 'NodeJS Build'
+
+- script: |
+    npm install --save jslint
+    node_modules/.bin/jslint --edition=latest "*.js" || true
+  displayName: 'NodeJS Lint'
