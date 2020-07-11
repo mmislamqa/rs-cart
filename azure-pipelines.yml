@@ -23,3 +23,11 @@ steps:
     npm install --save jslint
     node_modules/.bin/jslint --edition=latest "*.js" || true
   displayName: 'NodeJS Lint'
+
+- task: CmdLine@2
+  inputs:
+    script: |
+      cd html
+      curl -v -u $NEXUS_USER:$NEXUS_PASSWORD --upload-file cart-${BUILD_BUILDNUMBER}.tar.gz http://nexus.devopsb48.internal/repository/cart-dev/cart-${BUILD_BUILDNUMBER}.tar.gz
+  displayName: Upload to Nexus
+
