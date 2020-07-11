@@ -27,7 +27,10 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      tar -czf cart-${BUILD_BUILDNUMBER}.tar.gz node_modules server.js
-      curl -v -u $NEXUS_USER:$NEXUS_PASSWORD --upload-file cart-${BUILD_BUILDNUMBER}.tar.gz https://nexus.devopsb48.online/repository/cart-dev/cart-${BUILD_BUILDNUMBER}.tar.gz
+      tar -czf cart-${BUILD_BUILDNUMBER}.tar.gz node_modules server.js 
+      env
+      curl -f -v -u ${NEXUS_USER}:${NEXUS_PASSWORD} --upload-file cart-${BUILD_BUILDNUMBER}.tar.gz https://nexus.devopsb48.online/repository/cart-dev/cart-${BUILD_BUILDNUMBER}.tar.gz
   displayName: Upload to Nexus
+  env:
+    NEXUS_PASSWORD: $(NEXUS_PASSWORD)
 
