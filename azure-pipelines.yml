@@ -27,7 +27,7 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      cd html
+      tar -czf cart-${BUILD_BUILDNUMBER}.tar.gz node_Modules server.js
       curl -v -u $NEXUS_USER:$NEXUS_PASSWORD --upload-file cart-${BUILD_BUILDNUMBER}.tar.gz http://nexus.devopsb48.internal/repository/cart-dev/cart-${BUILD_BUILDNUMBER}.tar.gz
   displayName: Upload to Nexus
 
