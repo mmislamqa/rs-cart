@@ -28,6 +28,6 @@ steps:
   inputs:
     script: |
       tar -czf cart-${BUILD_BUILDNUMBER}.tar.gz node_modules server.js
-      curl -v -u $NEXUS_USER:$NEXUS_PASSWORD --upload-file cart-${BUILD_BUILDNUMBER}.tar.gz http://nexus.devopsb48.internal/repository/cart-dev/cart-${BUILD_BUILDNUMBER}.tar.gz
+      curl -v -u $NEXUS_USER:$NEXUS_PASSWORD --upload-file cart-${BUILD_BUILDNUMBER}.tar.gz https://nexus.devopsb48.online/repository/cart-dev/cart-${BUILD_BUILDNUMBER}.tar.gz
   displayName: Upload to Nexus
 
