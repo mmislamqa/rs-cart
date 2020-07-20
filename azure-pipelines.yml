@@ -30,6 +30,6 @@ steps:
       mkdir publish
       mv node_modules server.js publish
       cd publish
-      az artifacts universal publish --organization https://dev.azure.com/DevOps-Batches/ --feed DevOps-Batches --name cart --version 1.${BUILD_BUILDNUMBER}--description "cart" --path .
+      az artifacts universal publish --organization https://dev.azure.com/DevOps-Batches/ --feed DevOps-Batches --name cart --version 1.${BUILD_BUILDNUMBER} --description "cart" --path .
   displayName: Publish Artifacts
 
