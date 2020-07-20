@@ -26,7 +26,7 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      tar -czf cart-${BUILD_BUILDNUMBER}.tar.gz node_modules server.js
+      tar -czf cart.tar.gz node_modules server.js
       env
       mkdir publish
       mv *.tar.gz publish
