@@ -26,10 +26,11 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      tar -czf cart-${BUILD_BUILDNUMBER}.tar.gz node_modules server.js 
+      tar -czf cart-${BUILD_BUILDNUMBER}.tar.gz node_modules server.js
+      env
       mkdir publish
       mv *.tar.gz publish
       cd publihsh
-      az artifacts universal publish --organization https://dev.azure.com/DevOps-Batches/ --feed DevOps-Batches --name cart --version ${BUILD_BUILDNUMBER} --description "SAMPLE" --path .
+      az artifacts universal publish --organization https://dev.azure.com/DevOps-Batches/ --feed DevOps-Batches --name cart --version ${BUILD_BUILDNUMBER} --description "cart" --path .
   displayName: Publish Artifacts
 
