@@ -27,9 +27,9 @@ steps:
   inputs:
     script: |
       tar -czf cart-${BUILD_BUILDNUMBER}.tar.gz node_modules server.js 
-      env
-      curl -f -v -u ${NEXUS_USER}:${NEXUS_PASSWORD} --upload-file cart-${BUILD_BUILDNUMBER}.tar.gz https://nexus.devopsb48.online/repository/cart-dev/cart-${BUILD_BUILDNUMBER}.tar.gz
-  displayName: Upload to Nexus
-  env:
-    NEXUS_PASSWORD: $(NEXUS_PASSWORD)
+      mkdir publish
+      mv *.tar.gz publish
+      cd publihsh
+      az artifacts universal publish --organization https://dev.azure.com/DevOps-Batches/ --feed DevOps-Batches --name cart --version ${BUILD_BUILDNUMBER} --description "SAMPLE" --path .
+  displayName: Publish Artifacts
 
