@@ -29,6 +29,7 @@ var redisConnected = false;
 
 var redisHost = process.env.REDIS_HOST || 'localhost'
 var catalogueHost = process.env.CATALOGUE_HOST || 'localhost'
+var cataloguePort = process.env.CATALOGUE_PORT || '7002'
 
 const logger = pino({
     level: 'info',
@@ -346,7 +347,7 @@ function calcTax(total) {
 
 function getProduct(sku) {
     return new Promise((resolve, reject) => {
-        request('http://' + catalogueHost + ':7002/product/' + sku, (err, res, body) => {
+        request('http://' + catalogueHost + ':' + cataloguePort + '/product/' + sku, (err, res, body) => {
             if(err) {
                 reject(err);
             } else if(res.statusCode != 200) {
