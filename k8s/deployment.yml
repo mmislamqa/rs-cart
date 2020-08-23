@@ -28,3 +28,6 @@ spec:
               value: redis
             - name: CATALOGUE_HOST
               value: catalogue
+            - name: CATALOGUE_PORT
+              value: "7002"
+              
