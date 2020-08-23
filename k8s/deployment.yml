@@ -22,7 +22,7 @@ spec:
         - name: cart
           image: rkalluru/b48-cart:BUILDNO
           ports:
-            - containerPort: 7002
+            - containerPort: 7001
           env:
             - name: REDIS_HOST
               value: redis

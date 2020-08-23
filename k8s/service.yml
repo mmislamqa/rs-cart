@@ -8,5 +8,5 @@ spec:
     build: "BUILDNO"
   ports:
     - protocol: TCP
-      port: 7002
-      targetPort: 7002
+      port: 7001
+      targetPort: 7001
