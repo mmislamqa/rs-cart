@@ -29,7 +29,7 @@ var redisConnected = false;
 
 var redisHost = process.env.REDIS_HOST || 'localhost'
 var catalogueHost = process.env.CATALOGUE_HOST || 'localhost'
-var cataloguePort = process.env.CATALOGUE_PORT || '7002'
+var cataloguePort = process.env.CATALOGUE_PORT || '8000'
 
 const logger = pino({
     level: 'info',
@@ -388,7 +388,7 @@ redisClient.on('ready', (r) => {
 });
 
 // fire it up!
-const port = process.env.CART_SERVER_PORT || '7001';
+const port = process.env.CART_SERVER_PORT || '8000';
 app.listen(port, () => {
     logger.info('Started on port', port);
 });
